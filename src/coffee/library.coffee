@@ -1,8 +1,11 @@
 $ ->
+	# for the menu, ajax loading for everything except resume
 	$('#menu a').click (e)->
-		# linkID = $(this).attr 'id'
-		# alert $(this).attr('id')
 		if ($(this).attr('id') != 'resume') 
 			e.preventDefault()
 			$('#content').load($(this).attr('href'))
+	# just for the contact link in my about
+	$('#about-contact').click (e) ->
+		e.preventDefault()
+		$('#content').load($(this).attr('href'))
 		
