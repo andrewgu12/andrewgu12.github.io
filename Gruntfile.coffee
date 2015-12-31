@@ -10,7 +10,10 @@ module.exports = (grunt) ->
 				options:
 					pretty: true
 				files: [
-					'index.html' : 'src/index.jade'
+					'index.html' : 'src/template.jade'
+					'dist/html/home.html' : 'src/jade/home.jade'
+					'dist/html/about.html' : 'src/jade/about.jade'
+					'dist/html/contact.html' : 'src/jade/contact.jade'
 				]
 		sass:
 			dist:
@@ -28,7 +31,7 @@ module.exports = (grunt) ->
 				files: 'src/styles/*.scss'
 				tasks: ['sass']
 			template:
-				files: 'src/*.jade'
+				files: ['src/template.jade', 'src/jade/*.jade']
 				tasks: ['jade']
 	grunt.loadNpmTasks 'grunt-contrib-watch'
 	grunt.loadNpmTasks 'grunt-contrib-jade'
