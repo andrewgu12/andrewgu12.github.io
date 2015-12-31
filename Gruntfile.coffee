@@ -3,7 +3,7 @@ module.exports = (grunt) ->
 		coffee:
 			compile:
 				files: [
-					'dist/library.js' : 'src/library.coffee'
+					'dist/main.js' : 'src/coffee/*.coffee'
 				]
 		jade:
 			compile:
@@ -15,16 +15,17 @@ module.exports = (grunt) ->
 		sass:
 			dist:
 				options:
-					style: 'expanded'
+					style: 'compressed'
+					sourcemap: 'none'
 				files: [
-					'dist/library.css' : 'src/library.sass'
+					'dist/library.css' : 'src/styles/library.scss'
 				]
 		watch:
 			scripts:
-				files: 'src/library.coffee'
+				files: 'src/coffee/*.coffee'
 				tasks: ['coffee']
 			styles:
-				files: 'src/library.sass'
+				files: 'src/styles/*.scss'
 				tasks: ['sass']
 			template:
 				files: 'src/*.jade'
