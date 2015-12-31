@@ -5998,7 +5998,7 @@
                 return $("#content").load($(this).attr("href"));
             }
         });
-        return $("a#about-contact").on("click", function(e) {
+        return $("a#aboutContact").on("click", function(e) {
             e.preventDefault();
             return $("#content").load($(this).attr("href"));
         });
