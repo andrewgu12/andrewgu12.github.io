@@ -26,6 +26,8 @@ module.exports = (grunt) ->
 		uglify:
 			options:
 				mangle: false
+				compress: false
+				beautify: true
 			my_target:
 				files: [
 					'dist/library.js' : 'dist/js/*.js'
