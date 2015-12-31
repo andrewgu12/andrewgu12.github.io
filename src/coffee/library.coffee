@@ -8,6 +8,6 @@ $ ->
 	# $('a#aboutContact').on 'click', (e) ->
 	# 	e.preventDefault()
 	# 	$('#content').load($(this).attr('href'))
-	$('p a').on 'click', ->
+	$(document).on 'click', 'a#aboutContact', ->
 		alert 'cmon!'
 		

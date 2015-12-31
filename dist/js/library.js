@@ -6,7 +6,7 @@
         return $('#content').load($(this).attr('href'));
       }
     });
-    return $('p a').on('click', function() {
+    return $(document).on('click', 'a#aboutContact', function() {
       return alert('cmon!');
     });
   });
