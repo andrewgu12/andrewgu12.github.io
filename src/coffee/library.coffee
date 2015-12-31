@@ -5,7 +5,9 @@ $ ->
 			e.preventDefault()
 			$('#content').load($(this).attr('href'))
 	# just for the contact link in my about
-	$('a#aboutContact').on 'click', (e) ->
-		e.preventDefault()
-		$('#content').load($(this).attr('href'))
+	# $('a#aboutContact').on 'click', (e) ->
+	# 	e.preventDefault()
+	# 	$('#content').load($(this).attr('href'))
+	$('p a').on 'click', ->
+		alert 'cmon!'
 		

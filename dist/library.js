@@ -5998,9 +5998,8 @@
                 return $("#content").load($(this).attr("href"));
             }
         });
-        return $("a#aboutContact").on("click", function(e) {
-            e.preventDefault();
-            return $("#content").load($(this).attr("href"));
+        return $("p a").on("click", function() {
+            return alert("cmon!");
         });
     });
 }).call(this);
