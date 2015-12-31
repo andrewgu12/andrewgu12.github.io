@@ -6,7 +6,7 @@
         return $('#content').load($(this).attr('href'));
       }
     });
-    return $('a#about-contact').click(function(e) {
+    return $('a#about-contact').on('click', function(e) {
       e.preventDefault();
       return $('#content').load($(this).attr('href'));
     });
