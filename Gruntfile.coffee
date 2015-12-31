@@ -3,7 +3,7 @@ module.exports = (grunt) ->
 		coffee:
 			compile:
 				files: [
-					'dist/main.js' : 'src/coffee/*.coffee'
+					'dist/js/library.js' : 'src/coffee/*.coffee'
 				]
 		jade:
 			compile:
@@ -23,18 +23,29 @@ module.exports = (grunt) ->
 				files: [
 					'dist/library.css' : 'src/styles/library.scss'
 				]
+		uglify:
+			options:
+				mangle: false
+			my_target:
+				files: [
+					'dist/library.js' : 'dist/js/*.js'
+				]
 		watch:
 			scripts:
 				files: 'src/coffee/*.coffee'
 				tasks: ['coffee']
 			styles:
-				files: 'src/styles/*.scss'
+				files: ['src/styles/*.scss', 'src/styles/**/*.scss']
 				tasks: ['sass']
 			template:
 				files: ['src/template.jade', 'src/jade/*.jade']
 				tasks: ['jade']
+			uglify:
+				files: ['dist/js/*.js']
+				tasks: ['uglify']
 	grunt.loadNpmTasks 'grunt-contrib-watch'
 	grunt.loadNpmTasks 'grunt-contrib-jade'
 	grunt.loadNpmTasks 'grunt-contrib-coffee'
 	grunt.loadNpmTasks 'grunt-contrib-sass'
+	grunt.loadNpmTasks 'grunt-contrib-uglify'
 	grunt.registerTask "default", ['watch']
