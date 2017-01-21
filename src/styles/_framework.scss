@@ -46,28 +46,24 @@ div#container {
 		width: auto;
 		height: auto;
 		margin: 0 auto;
-		// border: 1px solid #E8E8E8;	
-		text-align: left;	
+		// border: 1px solid #E8E8E8;
+		text-align: left;
 		p {
-			text-indent: 2em;	
+			text-indent: 2em;
+			padding-left: 0.5em;
+			padding-right: 0.5em;
 			a {
 				color: #585858;
 				text-decoration: underline;
-			}		
+			}
 			a:visited {
 				color: #585858;
 				text-decoration: underline;
 			}
 		}
 		p#contact_links {
-			text-align: center;
-			i {
-				color: #A4A4A4;
-			}
-			i:hover {
-				color: #000;
-			}
+			text-indent: 0;
 		}
 	}
-	
+
 }
