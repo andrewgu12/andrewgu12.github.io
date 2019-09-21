@@ -1,0 +1,10 @@
+{
+  "compileOnSave": true,
+  "compilerOptions": {
+    "allowJs": true,
+    "esModuleInterop": true,
+    "outFile": "./dist/library.js"
+  },
+  "include": ["./ts/*.ts"],
+  "exclude": ["./node_modules/*"]
+}
