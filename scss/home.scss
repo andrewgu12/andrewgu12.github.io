@@ -1,0 +1,26 @@
+div#home-content {
+  h1 {
+    font-size: 6rem;
+    font-weight: 300;
+    margin: 0;
+    line-height: 6rem;
+  }
+  div#home-content__tagline {
+    margin-top: 1rem;
+    p {
+      font-size: 1rem;
+      font-weight: 300;
+      line-height: 1rem;
+      margin-bottom: 0.5rem;
+
+    }
+  }
+
+  div#home-content__body {
+    margin-top: 3rem;      // vertically align icons with the text
+    i.fab {
+      display: block;
+      text-align: center;
+    }
+  }
+}

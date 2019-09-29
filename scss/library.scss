@@ -1,0 +1,16 @@
+@import url('https://fonts.googleapis.com/css?family=Open+Sans:300,400&display=swap');
+@import "./fontawesome-free-5.11.2-web/scss/fontawesome.scss";
+@import "./fontawesome-free-5.11.2-web/scss/solid.scss";
+@import "./fontawesome-free-5.11.2-web/scss/brands.scss";
+@import "./material-design-lite/src/material-design-lite.scss";
+
+body, html {
+  font-size: 16px;
+}
+
+a, a:visited {
+  color: unquote("rgb(#{$palette-grey-500})");
+  text-decoration: none;
+}
+@import "./header.scss";
+@import "./home.scss";

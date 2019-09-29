@@ -1,0 +1,18 @@
+$header-font-color: #000000;
+
+header.mdl-layout__header {
+  background-color: #FFF;
+  color: $header-font-color;
+  box-shadow: none;
+}
+nav.mdl-navigation {
+  a.mdl-navigation__link {
+    color: $header-font-color;
+    text-decoration: none;
+
+    &:hover {
+      text-decoration: underline unquote("rgb(#{$palette-grey-500})") solid;
+      transition: text-decoration 1s;
+    }
+  }
+}
