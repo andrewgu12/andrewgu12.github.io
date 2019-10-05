@@ -15668,6 +15668,6 @@ div#home-content div#home-content__tagline {
 
 div#home-content div#home-content__body {
   margin-top: 3rem; }
-  div#home-content div#home-content__body i.fab {
+  div#home-content div#home-content__body i.fab, div#home-content div#home-content__body i.fa {
     display: block;
     text-align: center; }
