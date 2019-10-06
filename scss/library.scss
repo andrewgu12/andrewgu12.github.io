@@ -12,5 +12,9 @@ a, a:visited {
   color: unquote("rgb(#{$palette-grey-500})");
   text-decoration: none;
 }
+a:hover {
+  color: unquote("rgb(#{$palette-blue-500})"); 
+  transition: 1s color;
+}
 @import "./header.scss";
 @import "./home.scss";

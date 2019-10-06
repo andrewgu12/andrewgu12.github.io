@@ -15640,6 +15640,10 @@ a, a:visited {
   color: rgb(158,158,158);
   text-decoration: none; }
 
+a:hover {
+  color: rgb(33,150,243);
+  transition: 1s color; }
+
 header.mdl-layout__header {
   background-color: #FFF;
   color: #000000;
