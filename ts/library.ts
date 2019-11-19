@@ -6,7 +6,7 @@ const getHtmlContents = async (name: string = 'home') => {
     console.log(err);
     return '<p>The page you\'re trying to access doesn\'t exist!</p>';
   }
-}
+};
 
 // listeners for the header links
 const navElements = document.getElementsByClassName('site-navigation');
@@ -18,26 +18,19 @@ Array.from(navElements).map((nav: HTMLElement) => {
 
     const link = e.target.toString();
     // blank => home page
-    const hrefValue = link.match(/\/(\w+)$/) ? link.match(/\/(\w+)$/)[1] : undefined;
+    const hrefValue = link.match(/#(\w+)$/) ? link.match(/#(\w+)$/)[1] : undefined;
     const fileContents = await getHtmlContents(hrefValue);
     bodyContent.innerHTML = fileContents;
     if (history)
-      history.pushState({html: fileContents, set: true}, hrefValue, `/${hrefValue ? hrefValue : ''}`);
+      history.pushState({html: fileContents, set: true}, hrefValue, `#${hrefValue ? hrefValue : ''}`);
   });
 });
 
 // By default, open up on the home page
 document.addEventListener('DOMContentLoaded', async (e) => {
-  
-  const link = e.target.toString();
+  // @ts-ignore
+  const link = e.currentTarget.location.href;
   // blank => home page
-  const hrefValue = link.match(/\/(\w+)$/) ? link.match(/\/(\w+)$/)[1] : undefined;
-  const fileContents = await getHtmlContents(hrefValue);
-  document.getElementById('page-content').innerHTML = fileContents;
-
+  const hrefValue = link.match(/#(\w+)$/) ? link.match(/#(\w+)$/)[1] : undefined;
+  document.getElementById('page-content').innerHTML = await getHtmlContents(hrefValue);
 });
-
-// check the URL first!
-window.addEventListener('hashchange', (e) => {
-  console.log(e);
-})

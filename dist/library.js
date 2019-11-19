@@ -68,13 +68,13 @@ Array.from(navElements).map(function (nav) {
                     bodyContent = document.getElementById('page-content');
                     bodyContent.innerHTML = "";
                     link = e.target.toString();
-                    hrefValue = link.match(/\/(\w+)$/) ? link.match(/\/(\w+)$/)[1] : undefined;
+                    hrefValue = link.match(/#(\w+)$/) ? link.match(/#(\w+)$/)[1] : undefined;
                     return [4 /*yield*/, getHtmlContents(hrefValue)];
                 case 1:
                     fileContents = _a.sent();
                     bodyContent.innerHTML = fileContents;
                     if (history)
-                        history.pushState({ html: fileContents, set: true }, hrefValue, "/" + (hrefValue ? hrefValue : ''));
+                        history.pushState({ html: fileContents, set: true }, hrefValue, "#" + (hrefValue ? hrefValue : ''));
                     return [2 /*return*/];
             }
         });
@@ -82,21 +82,17 @@ Array.from(navElements).map(function (nav) {
 });
 // By default, open up on the home page
 document.addEventListener('DOMContentLoaded', function (e) { return __awaiter(_this, void 0, void 0, function () {
-    var link, hrefValue, fileContents;
-    return __generator(this, function (_a) {
-        switch (_a.label) {
+    var link, hrefValue, _a;
+    return __generator(this, function (_b) {
+        switch (_b.label) {
             case 0:
-                link = e.target.toString();
-                hrefValue = link.match(/\/(\w+)$/) ? link.match(/\/(\w+)$/)[1] : undefined;
+                link = e.currentTarget.location.href;
+                hrefValue = link.match(/#(\w+)$/) ? link.match(/#(\w+)$/)[1] : undefined;
+                _a = document.getElementById('page-content');
                 return [4 /*yield*/, getHtmlContents(hrefValue)];
             case 1:
-                fileContents = _a.sent();
-                document.getElementById('page-content').innerHTML = fileContents;
+                _a.innerHTML = _b.sent();
                 return [2 /*return*/];
         }
     });
 }); });
-// check the URL first!
-window.addEventListener('hashchange', function (e) {
-    console.log(e);
-});
