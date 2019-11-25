@@ -15675,3 +15675,12 @@ div#home-content div#home-content__body {
   div#home-content div#home-content__body i.fab, div#home-content div#home-content__body i.fa {
     display: block;
     text-align: center; }
+
+@media screen and (max-device-width: 480px) {
+  div#about-page div.mdl-cell:first-child {
+    margin-left: 0 !important; } }
+
+img#me-picture {
+  border-radius: 50%;
+  width: 150px;
+  height: 150px; }

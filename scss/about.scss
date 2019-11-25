@@ -1,3 +1,9 @@
+@media screen and (max-device-width: $grid-tablet-breakpoint) {
+  div#about-page div.mdl-cell:first-child {
+    margin-left: 0 !important;
+  }
+}
+
 img#me-picture {
   border-radius: 50%;
   width: 150px;

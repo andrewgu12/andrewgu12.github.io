@@ -56,6 +56,13 @@ var getHtmlContents = function (name) {
         });
     });
 };
+// If the page doesn't exist, then we return 404
+var filterPageValues = function (page) {
+    if (!page || page === '')
+        page = 'home';
+    var pagesBank = ['home', 'about'];
+    return (pagesBank.includes(page)) ? page : '404';
+};
 // listeners for the header links
 var navElements = document.getElementsByClassName('site-navigation');
 Array.from(navElements).map(function (nav) {
@@ -69,6 +76,7 @@ Array.from(navElements).map(function (nav) {
                     bodyContent.innerHTML = "";
                     link = e.target.toString();
                     hrefValue = link.match(/#(\w+)$/) ? link.match(/#(\w+)$/)[1] : undefined;
+                    hrefValue = filterPageValues(hrefValue);
                     return [4 /*yield*/, getHtmlContents(hrefValue)];
                 case 1:
                     fileContents = _a.sent();
@@ -82,16 +90,20 @@ Array.from(navElements).map(function (nav) {
 });
 // By default, open up on the home page
 document.addEventListener('DOMContentLoaded', function (e) { return __awaiter(_this, void 0, void 0, function () {
-    var link, hrefValue, _a;
-    return __generator(this, function (_b) {
-        switch (_b.label) {
+    var link, hrefValue, fileContents;
+    return __generator(this, function (_a) {
+        switch (_a.label) {
             case 0:
                 link = e.currentTarget.location.href;
                 hrefValue = link.match(/#(\w+)$/) ? link.match(/#(\w+)$/)[1] : undefined;
-                _a = document.getElementById('page-content');
+                hrefValue = filterPageValues(hrefValue);
                 return [4 /*yield*/, getHtmlContents(hrefValue)];
             case 1:
-                _a.innerHTML = _b.sent();
+                fileContents = _a.sent();
+                document.getElementById('page-content').innerHTML = fileContents;
+                // in case someone enters in a wrong url, we want to show them the 404
+                if (history)
+                    history.replaceState({ html: fileContents, set: true }, hrefValue, "#" + (hrefValue ? hrefValue : ''));
                 return [2 /*return*/];
         }
     });
