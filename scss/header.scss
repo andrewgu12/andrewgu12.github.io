@@ -16,3 +16,27 @@ nav.mdl-navigation {
     }
   }
 }
+
+div.mdl-layout__drawer {
+  span.mdl-layout-title {
+    line-height: 3rem;
+    a {
+      font-size: 1.5rem;
+    }
+  }
+  nav.mdl-navigation {
+    padding-top: 0;
+    a.mdl-navigation__link {
+      padding: 0.5rem 1rem;
+    }
+  }
+}
+
+// why is the drawer button so big?
+@media screen and (max-device-width: $grid-tablet-breakpoint) {
+  div.mdl-layout__drawer-button {
+    position: static;
+    height: 2rem;
+    line-height: 2.5rem;
+  }
+}

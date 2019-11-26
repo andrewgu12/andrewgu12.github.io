@@ -15634,7 +15634,8 @@ _:-ms-input-placeholder, :root .mdl-slider.mdl-slider.is-upgraded {
       margin-left: 91.66667%; } }
 
 body, html {
-  font-size: 16px; }
+  font-size: 16px;
+  overflow: hidden; }
 
 a, a:visited {
   color: rgb(158,158,158);
@@ -15655,6 +15656,22 @@ nav.mdl-navigation a.mdl-navigation__link {
   nav.mdl-navigation a.mdl-navigation__link:hover {
     text-decoration: underline rgb(158,158,158) solid;
     transition: text-decoration 1s; }
+
+div.mdl-layout__drawer span.mdl-layout-title {
+  line-height: 3rem; }
+  div.mdl-layout__drawer span.mdl-layout-title a {
+    font-size: 1.5rem; }
+
+div.mdl-layout__drawer nav.mdl-navigation {
+  padding-top: 0; }
+  div.mdl-layout__drawer nav.mdl-navigation a.mdl-navigation__link {
+    padding: 0.5rem 1rem; }
+
+@media screen and (max-device-width: 480px) {
+  div.mdl-layout__drawer-button {
+    position: static;
+    height: 2rem;
+    line-height: 2.5rem; } }
 
 div#home-content h1 {
   font-size: 6rem;
@@ -15683,7 +15700,8 @@ div#home-content div#home-content__body {
 @media screen and (max-device-width: 480px) {
   div#home-content h1 {
     font-size: 4rem;
-    text-align: center; }
+    text-align: center;
+    line-height: 4rem; }
   div#home-content div#home-content__tagline p {
     text-align: center;
     line-height: 1.1rem; }

@@ -101,7 +101,7 @@ Array.from(navElements).map(function (nav) {
         });
     }); });
 });
-// By default, open up on the home page
+// On page load, check the URL to see what page to load
 document.addEventListener('DOMContentLoaded', function (e) { return __awaiter(_this, void 0, void 0, function () {
     var bodyContent, link, hrefValue, fileContents;
     return __generator(this, function (_a) {
@@ -124,6 +124,7 @@ document.addEventListener('DOMContentLoaded', function (e) { return __awaiter(_t
         }
     });
 }); });
+// manually replace page contents if someone uses the browser back/forth buttons
 window.addEventListener('hashchange', function (e) { return __awaiter(_this, void 0, void 0, function () {
     var oldHash, newHash, bodyContent, fileContents;
     return __generator(this, function (_a) {

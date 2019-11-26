@@ -52,7 +52,7 @@ Array.from(navElements).map((nav: HTMLElement) => {
   });
 });
 
-// By default, open up on the home page
+// On page load, check the URL to see what page to load
 document.addEventListener('DOMContentLoaded', async (e) => {
   const bodyContent = document.getElementById('page-content');    
   bodyContent.innerHTML = '';
@@ -70,6 +70,7 @@ document.addEventListener('DOMContentLoaded', async (e) => {
     history.replaceState({html: fileContents, set: true}, hrefValue, `#${hrefValue ? hrefValue : ''}`);
 });
 
+// manually replace page contents if someone uses the browser back/forth buttons
 window.addEventListener('hashchange', async (e) => {
   const oldHash = filterPageValues(getHashValue(e.oldURL));
   const newHash = filterPageValues(getHashValue(e.newURL));
