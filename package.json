@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "start": "./node_modules/.bin/ts-node index.ts",
-    "build-ts": "tsc -w",
+    "build-ts": "./node_modules/.bin/webpack --watch --config webpack.config.js",
     "build-scss": "./node_modules/.bin/node-sass -w scss/library.scss dist/library.css"
   },
   "repository": {
@@ -29,7 +29,10 @@
     "@types/node": "^12.7.5",
     "@types/serve-static": "^1.13.3",
     "node-sass": "^4.12.0",
+    "ts-loader": "^6.2.1",
     "ts-node": "^8.4.1",
-    "typescript": "^3.6.3"
+    "typescript": "^3.6.3",
+    "webpack": "^4.41.2",
+    "webpack-cli": "^3.3.10"
   }
 }
