@@ -24,3 +24,33 @@ div#home-content {
     }
   }
 }
+
+
+@media screen and (min-device-width: $grid-tablet-breakpoint) and (max-device-width: $grid-desktop-breakpoint) {
+  div#home-content {
+    margin-top: 2rem;
+  }
+}
+
+@media screen and (max-device-width: $grid-tablet-breakpoint) {
+  div#home-content {
+    h1 {
+      font-size: 4rem;
+      text-align: center;
+    }
+    div#home-content__tagline {
+      p {
+        text-align: center;
+        line-height: 1.1rem;
+      }
+    }
+    div#home-content__body {
+      margin-top: 1rem;      
+      text-align: center;
+
+      div.mdl-grid {
+        justify-content: center;
+      }
+    }
+  }
+}

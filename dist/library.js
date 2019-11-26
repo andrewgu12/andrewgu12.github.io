@@ -56,12 +56,24 @@ var getHtmlContents = function (name) {
         });
     });
 };
+var globalLoadingElement = function () {
+    var loading = document.createElement('div');
+    loading.setAttribute('class', 'mdl-spinner');
+    loading.setAttribute('class', 'mdl-js-spinner');
+    loading.setAttribute('class', 'is-active');
+    return loading;
+};
 // If the page doesn't exist, then we return 404
 var filterPageValues = function (page) {
     if (!page || page === '')
         page = 'home';
     var pagesBank = ['home', 'about'];
     return (pagesBank.includes(page)) ? page : '404';
+};
+// Get the hash portion of the URL
+var getHashValue = function (link) {
+    var hashRegex = /#(\w+)$/;
+    return link.match(hashRegex) ? link.match(/#(\w+)$/)[1] : undefined;
 };
 // listeners for the header links
 var navElements = document.getElementsByClassName('site-navigation');
@@ -73,9 +85,10 @@ Array.from(navElements).map(function (nav) {
                 case 0:
                     e.preventDefault();
                     bodyContent = document.getElementById('page-content');
-                    bodyContent.innerHTML = "";
+                    bodyContent.innerHTML = '';
+                    bodyContent.appendChild(globalLoadingElement());
                     link = e.target.toString();
-                    hrefValue = link.match(/#(\w+)$/) ? link.match(/#(\w+)$/)[1] : undefined;
+                    hrefValue = getHashValue(link);
                     hrefValue = filterPageValues(hrefValue);
                     return [4 /*yield*/, getHtmlContents(hrefValue)];
                 case 1:
@@ -90,12 +103,15 @@ Array.from(navElements).map(function (nav) {
 });
 // By default, open up on the home page
 document.addEventListener('DOMContentLoaded', function (e) { return __awaiter(_this, void 0, void 0, function () {
-    var link, hrefValue, fileContents;
+    var bodyContent, link, hrefValue, fileContents;
     return __generator(this, function (_a) {
         switch (_a.label) {
             case 0:
+                bodyContent = document.getElementById('page-content');
+                bodyContent.innerHTML = '';
+                bodyContent.appendChild(globalLoadingElement());
                 link = e.currentTarget.location.href;
-                hrefValue = link.match(/#(\w+)$/) ? link.match(/#(\w+)$/)[1] : undefined;
+                hrefValue = getHashValue(link);
                 hrefValue = filterPageValues(hrefValue);
                 return [4 /*yield*/, getHtmlContents(hrefValue)];
             case 1:
@@ -105,6 +121,26 @@ document.addEventListener('DOMContentLoaded', function (e) { return __awaiter(_t
                 if (history)
                     history.replaceState({ html: fileContents, set: true }, hrefValue, "#" + (hrefValue ? hrefValue : ''));
                 return [2 /*return*/];
+        }
+    });
+}); });
+window.addEventListener('hashchange', function (e) { return __awaiter(_this, void 0, void 0, function () {
+    var oldHash, newHash, bodyContent, fileContents;
+    return __generator(this, function (_a) {
+        switch (_a.label) {
+            case 0:
+                oldHash = filterPageValues(getHashValue(e.oldURL));
+                newHash = filterPageValues(getHashValue(e.newURL));
+                if (!(oldHash !== newHash)) return [3 /*break*/, 2];
+                bodyContent = document.getElementById('page-content');
+                bodyContent.innerHTML = '';
+                bodyContent.appendChild(globalLoadingElement());
+                return [4 /*yield*/, getHtmlContents(newHash)];
+            case 1:
+                fileContents = _a.sent();
+                bodyContent.innerHTML = fileContents;
+                _a.label = 2;
+            case 2: return [2 /*return*/];
         }
     });
 }); });
