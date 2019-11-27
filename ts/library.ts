@@ -28,7 +28,7 @@ const filterPageValues = (page?: string): string => {
 // Get the hash portion of the URL
 const getHashValue = (link: string): string => {
   const hashRegex = /#(\w+)$/;
-  return link.match(hashRegex) ? link.match(/#(\w+)$/)[1] : undefined;
+  return link.match(hashRegex) ? link.match(hashRegex)[1] : undefined;
 }
 
 
