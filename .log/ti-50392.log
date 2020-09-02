@@ -1,0 +1,19 @@
+[14:9:43.542] Global cache location '/Users/andrewgu/Library/Caches/typescript/3.8', safe file path '/users/andrewgu/config/spacemacs/.cache/lsp/npm/typescript/lib/node_modules/typescript/lib/typingsafelist.json', types map path /users/andrewgu/config/spacemacs/.cache/lsp/npm/typescript/lib/node_modules/typescript/lib/typesmap.json
+[14:9:43.544] Processing cache location '/Users/andrewgu/Library/Caches/typescript/3.8'
+[14:9:43.544] Trying to find '/Users/andrewgu/Library/Caches/typescript/3.8/package.json'...
+[14:9:43.546] Loaded content of '/Users/andrewgu/Library/Caches/typescript/3.8/package.json': {"private":true,"dependencies":{"types-registry":"^0.1.480"}}
+[14:9:43.546] Loaded content of '/Users/andrewgu/Library/Caches/typescript/3.8/package-lock.json'
+[14:9:43.546] Finished processing cache location '/Users/andrewgu/Library/Caches/typescript/3.8'
+[14:9:43.546] Process id: 50393
+[14:9:43.546] NPM location: /Users/andrewgu/.nvm/versions/node/v12.10.0/bin/npm (explicit '--npmLocation' not  provided)
+[14:9:43.546] validateDefaultNpmLocation: false
+[14:9:43.547] Npm config file: /Users/andrewgu/Library/Caches/typescript/3.8/package.json
+[14:9:43.547] Updating types-registry npm package...
+[14:9:43.547] Exec: /Users/andrewgu/.nvm/versions/node/v12.10.0/bin/npm install --ignore-scripts types-registry@latest
+[14:9:44.731]     Succeeded. stdout:
+    + types-registry@0.1.481
+    updated 1 package and audited 1 package in 0.473s
+found 0 vulnerabilities
+
+
+[14:9:44.731] Updated types-registry npm package

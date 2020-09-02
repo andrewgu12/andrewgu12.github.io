@@ -37,7 +37,7 @@ const navElements = document.getElementsByClassName('site-navigation');
 Array.from(navElements).map((nav: HTMLElement) => {
   nav.addEventListener('click', async (e: MouseEvent) => {
     e.preventDefault();
-    const bodyContent = document.getElementById('page-content');    
+    const bodyContent = document.getElementById('page-content');
     bodyContent.innerHTML = '';
     bodyContent.appendChild(globalLoadingElement());
 
@@ -54,7 +54,7 @@ Array.from(navElements).map((nav: HTMLElement) => {
 
 // On page load, check the URL to see what page to load
 document.addEventListener('DOMContentLoaded', async (e) => {
-  const bodyContent = document.getElementById('page-content');    
+  const bodyContent = document.getElementById('page-content');
   bodyContent.innerHTML = '';
   bodyContent.appendChild(globalLoadingElement());
 
